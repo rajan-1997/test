@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: thanos-storage-config
+  namespace: thanos
+data:
+  thanos.yaml: |
+    type: s3
+    config:
+      bucket: "new-us"
+      endpoint: "s3.us-east-1.amazonaws.com"
+      access_key: “AKIAXAJL2MEPHECY2M4N”
+      secret_key: “ipEqehRODpoto+KpcdHysYvK6tyMILKwyhWV34WM”
+      insecure: false
+
