@@ -7,6 +7,5 @@ entries:
       description: testing
       name: clusterv2
       type: application
-      urls:
-        - https://rajan-1997.github.io/test/monitoring-cluster/clusterv2-0.1.0.tgz
+      urls: https://rajan-1997.github.io/test/monitoring-cluster/clusterv2-0.1.0.tgz
       version: 0.1.0
