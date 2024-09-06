@@ -1,0 +1,39 @@
+prometheus:
+  enabled: true
+  replicaCount: 2
+  resources:
+    requests:
+      cpu: 256m         #512m
+      memory: 1Gi       #1536Mi
+    limits:
+      cpu: 512m
+      memory: 2Gi       #2048Mi
+  retention: 12h
+  retentionSize: 8GB
+  disableCompaction: true
+  persistence:
+    enabled: true
+    storageClass: "prometheus-storage-class"
+    accessModes:
+      - ReadWriteOnce
+    size: 32Gi
+  thanos:
+    create: true
+    objectStorageConfig:
+      secretName: thanos-storage
+      secretKey: thanos.yaml
+    resources:
+      requests:
+        cpu: 256m
+        memory: 256Mi
+      limits:
+        cpu: 512m
+        memory: 512Mi
+    service:
+      type: LoadBalancer
+      port: 10901
+      clusterIP: None
+      annotations:
+        service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+
+
